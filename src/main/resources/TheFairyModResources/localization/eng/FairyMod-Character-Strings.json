@@ -1,0 +1,13 @@
+
+{
+  "TheFairyMod:GunnerCharacter": {
+    "NAMES": [
+      "The Gunner",
+      "the Gunner"
+    ],
+    "TEXT": [
+      "The Gunner is Prepped and ready to go into the spire!",
+      "NL He's got a lot of Guns and ammo with him To blast away any foe.",
+    ]
+  }
+}

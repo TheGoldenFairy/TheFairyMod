@@ -1,0 +1,25 @@
+[
+  {
+    "NAMES": [
+     "bleed",
+     "bleeds"
+    ],
+    "DESCRIPTION": "Receives additional damage equal to their Bleed from an Attack. Loses half of its Bleed at end of turn."
+  },
+  {
+    "NAMES": [
+      "bullet",
+      "bullets"
+    ],
+    "DESCRIPTION": "Ammo needed for some attacks."
+  },
+  {
+    "NAMES": [
+      "requires",
+      "required",
+      "requiring",
+      "require"
+    ],
+    "DESCRIPTION": "Need and lose X amount."
+  }
+]

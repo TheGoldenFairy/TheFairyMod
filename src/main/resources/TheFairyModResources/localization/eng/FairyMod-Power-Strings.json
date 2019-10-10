@@ -1,0 +1,74 @@
+{
+  "TheFairyMod:BleedPower": {
+    "NAME": "Bleed",
+    "DESCRIPTIONS": ["Deal #b", " additional damage the next time you attack this enemy."]
+  },
+  "TheFairyMod:BulletPower": {
+    "NAME": "Bullet",
+    "DESCRIPTIONS": ["Ammo used for attacks. Currently have #b", " #yBullet.", " #yBullets."]
+  },
+  "TheFairyMod:NextTurnDrawAndEnergyPower": {
+    "NAME": "Card Draw and Energy Next Turn",
+    "DESCRIPTIONS": ["Next turn Draw #b", " cards and gain #b", " [E]."]
+  },
+  "TheFairyMod:NextTurnEnergyPower": {
+    "NAME": "Energy Next Turn",
+    "DESCRIPTIONS": ["Next turn gain #b", " [E]."]
+  },
+  "TheFairyMod:LastEffortPower": {
+    "NAME": "Last Effort",
+    "DESCRIPTIONS": ["The next #b", " cards that would #yExhaust, create a copy and add it to your draw pile."]
+  },
+  "TheFairyMod:NoMoreOptionsPower": {
+    "NAME": "No More Options",
+    "DESCRIPTIONS": ["At the start of your turn draw #b", " card."," cards."]
+  },
+  "TheFairyMod:PowerMovePower": {
+    "NAME": "No More Options",
+    "DESCRIPTIONS": ["At the start of your turn #yExhaust up to #b", " card."," cards."]
+  },
+  "TheFairyMod:ShieldingRoundsPower": {
+    "NAME": "Shielding Rounds",
+    "DESCRIPTIONS": ["Whenever you play a card that #yRequires #yBullets gain #b", " Block."]
+  },
+  "TheFairyMod:BurningDesirePower": {
+    "NAME": "Burning Desire",
+    "DESCRIPTIONS": ["Whenever a card is #yExhausted gain #b", " #yBlock."]
+  },
+  "TheFairyMod:FortificationPower": {
+    "NAME": "Fortification",
+    "DESCRIPTIONS": ["Whenever you gain #yBlock Deal #b", " to ALL enemies."]
+  },
+  "TheFairyMod:CalmingMomentPower": {
+    "NAME": "Calming Moment",
+    "DESCRIPTIONS": ["At the start of your turn gain #b", " temporary #yStrength and #yDexterity."]
+  },
+  "TheFairyMod:JaggedGroundPower": {
+    "NAME": "Jagged Ground",
+    "DESCRIPTIONS": ["At the start of your turn apply #b", " #yBleed to ALL enemies."]
+  },
+  "TheFairyMod:APRPower": {
+    "NAME": "APR",
+    "DESCRIPTIONS": ["All attacks #yRequiring #yBullets Deal #b", " more damage."]
+  },
+  "TheFairyMod:SpikedAmmoPower": {
+    "NAME": "Spiked Ammo",
+    "DESCRIPTIONS": ["Whenever an attack deals unblocked damage apply #b", " #yBleed."]
+  },
+  "TheFairyMod:EfficientAmmoPower": {
+    "NAME": "Efficient Ammo",
+    "DESCRIPTIONS": ["All cards #yRequiring #yBullets, #yRequire #b", " less #yBullet.", " less #yBullets."]
+  },
+  "TheFairyMod:ExtraAmmoPower": {
+    "NAME": "Extra Ammo",
+    "DESCRIPTIONS": ["At the start of your turn gain #b", " #yBullets."]
+  },
+  "TheFairyMod:ExplosiveFormPower": {
+    "NAME": "Explosive Form",
+    "DESCRIPTIONS": ["At the start of your turn the first #b", " attack card deal double damage."]
+  },
+  "TheFairyMod:MaximumEffortPower": {
+    "NAME": "Maximum Effort",
+    "DESCRIPTIONS": ["The next #b"," attack "," attacks ","you play this turn does 30% more damage."]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "TheFairyMod:SwitchBlade": {
+    "NAME": "Switch Blade",
+    "FLAVOR": "It's Sharp and Pointy.",
+    "DESCRIPTIONS": [
+      "At the start of combat Apply #b2 Bleed to a random enemy ."
+    ]
+  }
+}

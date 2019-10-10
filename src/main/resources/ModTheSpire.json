@@ -1,0 +1,11 @@
+{
+  "modid": "${project.artifactId}",
+  "name": "The Fairy Mod",
+  "author_list": ["TheGoldenFairy"],
+  "description": "The Newest in Fairy Mods",
+  "version": "0.0.1",
+  "sts_version": "07-01-2019",
+  "mts_version": "3.14.0",
+  "dependencies": ["basemod", "stslib"],
+  "update_json": ""
+}
