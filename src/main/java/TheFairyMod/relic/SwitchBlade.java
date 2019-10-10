@@ -1,7 +1,6 @@
 package TheFairyMod.relic;
 
 import TheFairyMod.TheFairyMod;
-import TheFairyMod.card.AATestCard;
 import TheFairyMod.power.BleedPower;
 import TheFairyMod.power.BulletPower;
 import TheFairyMod.util.TextureLoader;
