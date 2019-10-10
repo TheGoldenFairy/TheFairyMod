@@ -1,11 +1,11 @@
 package TheFairyMod.power;
 
 import TheFairyMod.TheFairyMod;
+import TheFairyMod.util.CustomTags;
 import TheFairyMod.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,6 +24,8 @@ public class EfficientAmmoPower extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
+    private static int PREVIOUS_AMT = 0;
+
     public EfficientAmmoPower(final AbstractCreature owner, final int amount) {
         name = NAME;
         ID = POWER_ID;
@@ -37,6 +39,44 @@ public class EfficientAmmoPower extends AbstractPower {
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
+        updateExistingBulletCards();
+    }
+
+    private void updateExistingBulletCards() {
+        if (PREVIOUS_AMT < amount) {
+            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                if (c.hasTag(CustomTags.REQUIRES) && c.hasTag(CustomTags.BULLET)) {
+                    if (c.baseMagicNumber > 0) {
+                        c.baseMagicNumber = c.baseMagicNumber - amount;
+                    PREVIOUS_AMT = amount;
+                    }
+                }
+            }
+            for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+                if (c.hasTag(CustomTags.REQUIRES) && c.hasTag(CustomTags.BULLET)) {
+                    if (c.baseMagicNumber > 0) {
+                        c.baseMagicNumber = c.baseMagicNumber - amount;
+                        PREVIOUS_AMT = amount;
+                    }
+                }
+            }
+            for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+                if (c.hasTag(CustomTags.REQUIRES) && c.hasTag(CustomTags.BULLET)) {
+                    if (c.baseMagicNumber > 0) {
+                        c.baseMagicNumber = c.baseMagicNumber - amount;
+                        PREVIOUS_AMT = amount;
+                    }
+                }
+            }
+            for (AbstractCard c : AbstractDungeon.player.exhaustPile.group) {
+                if (c.hasTag(CustomTags.REQUIRES) && c.hasTag(CustomTags.BULLET)) {
+                    if (c.baseMagicNumber > 0) {
+                        c.baseMagicNumber = c.baseMagicNumber - amount;
+                        PREVIOUS_AMT = amount;
+                    }
+                }
+            }
+        }
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

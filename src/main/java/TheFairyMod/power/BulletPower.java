@@ -44,7 +44,10 @@ public class BulletPower extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(card.hasTag(CustomTags.REQUIRES) && AbstractDungeon.player.hasPower(ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(owner, owner, ID, card.magicNumber));
+            amount -= card.magicNumber;
+            if(amount <= 0) {
+                amount = 0;
+            }
         }
     }
 

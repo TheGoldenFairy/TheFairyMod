@@ -43,9 +43,7 @@ public class APRPower extends AbstractPower {
         updateDescription();
     }
 
-
     private void updateExistingBulletCards() {
-
         if (PREVIOUS_AMT < amount) {
             for (AbstractCard c : AbstractDungeon.player.hand.group) {
                 if (c.hasTag(CustomTags.REQUIRES) && c.hasTag(CustomTags.BULLET)) {
@@ -73,6 +71,7 @@ public class APRPower extends AbstractPower {
             }
         }
     }
+
 
 
 
