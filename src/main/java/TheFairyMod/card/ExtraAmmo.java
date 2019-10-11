@@ -17,7 +17,7 @@ public class ExtraAmmo extends AbstractFairyCard {
     //card Info
     public static final String ID = TheFairyMod.makeID("ExtraAmmo");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String IMG = makeCardPath("Skill.png");
+    private static final String IMG = makeCardPath("Power.png");
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
 

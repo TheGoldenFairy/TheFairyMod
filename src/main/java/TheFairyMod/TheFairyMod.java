@@ -155,8 +155,8 @@ public class TheFairyMod implements
         logger.info("Adding cards");
 
         //TEST CARD
-        BaseMod.addCard(new AATestCard());
-        UnlockTracker.unlockCard(AATestCard.ID);
+        //BaseMod.addCard(new AATestCard());
+        //UnlockTracker.unlockCard(AATestCard.ID);
 
         //STARTER CARDS 4
         BaseMod.addCard(new FairyStrike());         //1
