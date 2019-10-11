@@ -32,10 +32,10 @@ public class OpenFire extends AbstractFairyCard {
     //card Number
     private static final int COST = 2;
     private static final int DAMAGE = 13;
-    private static final int UPGRADE_PLUS_DMG = 5;
+    private static final int UPGRADE_PLUS_DMG = 2;
     private static final int BULLET_AMT = 2;
-    private static final int ADDITIONAL_DAG = 2;
-    private static final int UPGRADE_PLUS = 3;
+    private static final int ADDITIONAL_DAG = 1;
+    private static final int UPGRADE_PLUS = 1;
 
     //card Initialize
     public OpenFire() {
@@ -63,8 +63,8 @@ public class OpenFire extends AbstractFairyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        if(AbstractDungeon.actionManager.cardsPlayedThisTurn.size() < 1) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, fairySecondMagicNumber, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        if(AbstractDungeon.actionManager.cardsPlayedThisTurn.size() <= 1) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage - 11, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
     }
 
