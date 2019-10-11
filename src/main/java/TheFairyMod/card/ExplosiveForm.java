@@ -29,12 +29,14 @@ public class ExplosiveForm extends AbstractFairyCard {
     private static final CardColor COLOR = TheGunner.Enums.COLOR_BROWN;
 
     //card Number
-    private static final int COST = 2;
+    private static final int COST = 3;
+    private static final int POWER_AMT = 1;
 
 
     //card Initialize
     public ExplosiveForm() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = POWER_AMT;
         isEthereal = true;
     }
 

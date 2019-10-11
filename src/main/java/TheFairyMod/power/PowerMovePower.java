@@ -22,6 +22,10 @@ public class PowerMovePower extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
+    private static final boolean IsNotRandom = false;
+    private static final boolean CanPickAnyNumber = true;
+    private static final boolean CanPickZero = true;
+
     public PowerMovePower(final AbstractCreature owner, final int amount) {
         name = NAME;
         ID = POWER_ID;
@@ -39,9 +43,9 @@ public class PowerMovePower extends AbstractPower {
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
         flash();
-        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(AbstractDungeon.player, AbstractDungeon.player, amount, false, true, true));
+        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(AbstractDungeon.player, AbstractDungeon.player, amount, IsNotRandom, CanPickAnyNumber, CanPickZero));
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

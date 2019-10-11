@@ -24,7 +24,7 @@
     "DESCRIPTIONS": ["At the start of your turn draw #b", " card."," cards."]
   },
   "TheFairyMod:PowerMovePower": {
-    "NAME": "No More Options",
+    "NAME": "Power Move",
     "DESCRIPTIONS": ["At the start of your turn #yExhaust up to #b", " card."," cards."]
   },
   "TheFairyMod:ShieldingRoundsPower": {
