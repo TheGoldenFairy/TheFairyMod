@@ -25,7 +25,7 @@ public class ShottyReload extends AbstractFairyCard {
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
     //card Stats
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = TheGunner.Enums.COLOR_BROWN;

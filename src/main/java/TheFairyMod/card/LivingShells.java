@@ -30,10 +30,10 @@ public class LivingShells extends AbstractFairyCard {
     private static final CardColor COLOR = TheGunner.Enums.COLOR_BROWN;
 
     //card Number
-    private static final int COST = 1;
-    private static final int BULLET_AMT = 5;
+    private static final int COST = 2;
+    private static final int BULLET_AMT = 6;
     private static final int BULLET_PLUS_AMT = 2;
-    private static final int BLEED_AMT = 4;
+    private static final int BLEED_AMT = 5;
     private static final int BLEED_PLUS_AMT = 2;
 
     //card Initialize

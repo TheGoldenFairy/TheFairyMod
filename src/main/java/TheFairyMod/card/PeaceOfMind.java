@@ -42,7 +42,6 @@ public class PeaceOfMind extends AbstractFairyCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         fairySecondMagicNumber = fairyBaseSecondMagicNumber = CARD_DRAW;
-        exhaust = true;
     }
 
     @Override

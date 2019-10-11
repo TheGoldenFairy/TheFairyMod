@@ -31,11 +31,11 @@ public class OpenFire extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 2;
-    private static final int DAMAGE = 13;
-    private static final int UPGRADE_PLUS_DMG = 2;
-    private static final int BULLET_AMT = 2;
-    private static final int ADDITIONAL_DAG = 1;
-    private static final int UPGRADE_PLUS = 1;
+    private static final int DAMAGE = 15;
+    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int BULLET_AMT = 3;
+    private static final int ADDITIONAL_DAG = 4;
+    private static final int UPGRADE_PLUS = 4;
 
     //card Initialize
     public OpenFire() {

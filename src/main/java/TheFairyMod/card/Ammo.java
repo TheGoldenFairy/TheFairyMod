@@ -33,7 +33,7 @@ public class Ammo extends CustomCard {
 
     //card Number
     private static final int COST = 0;
-    private static final int AMT = 2;
+    private static final int AMT = 3;
     private static final int AMT_PLUS = 1;
 
     //card Initialize

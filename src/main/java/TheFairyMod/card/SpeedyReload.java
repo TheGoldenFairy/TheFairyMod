@@ -30,15 +30,14 @@ public class SpeedyReload extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int BULLET_AMT = 3;
-    private static final int UPGRADE_PLUS = 1;
+    private static final int BULLET_AMT = 5;
+    private static final int UPGRADE_PLUS = 2;
 
 
     //card Initialize
     public SpeedyReload() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BULLET_AMT;
-        exhaust = true;
     }
 
     @Override

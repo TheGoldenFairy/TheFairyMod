@@ -37,8 +37,8 @@ public class SilentOps extends AbstractFairyCard {
     private static final int COST = 2;
     private static final int WEAK_AND_VUL_AMT = 3;
     private static final int WEAK_AND_VUL_PLUS_AMT = 1;
-    private static final int BULLET_AMT = 2;
-    private static final int BULLET_PLUS_AMT = 1;
+    private static final int BULLET_AMT = 4;
+    private static final int BULLET_PLUS_AMT = 2;
 
 
     //card Initialize

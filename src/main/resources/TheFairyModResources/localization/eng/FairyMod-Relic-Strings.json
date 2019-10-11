@@ -3,14 +3,14 @@
     "NAME": "Switch Blade",
     "FLAVOR": "It's Sharp and Pointy.",
     "DESCRIPTIONS": [
-      "At the start of combat Apply #b2 Bleed to a random enemy and gain #b1 Bullet."
+      "At the start of combat apply #b2 #yBleed to a random enemy and gain #b1 #yBullet."
     ]
   },
   "TheFairyMod:BatterFlyKnife": {
     "NAME": "Switch Blade",
     "FLAVOR": "It's Sharp and Pointy.",
     "DESCRIPTIONS": [
-      "At the start of combat Apply #b4 Bleed to a ALL enemy and gain #b2 Bullets."
+      "At the start of combat apply #b4 #yBleed to a ALL enemy and gain #b2 #yBullets."
     ]
   }
 }

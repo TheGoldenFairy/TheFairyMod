@@ -162,7 +162,7 @@ public class TheFairyMod implements
         BaseMod.addCard(new FairyStrike());         //1
         BaseMod.addCard(new FairyDefend());         //2
         BaseMod.addCard(new Ammo());                //3
-        BaseMod.addCard(new DoubleShot());          //4
+        BaseMod.addCard(new SplitShot());          //4
 
 
         //COMMON CARDS 21
@@ -207,14 +207,14 @@ public class TheFairyMod implements
         BaseMod.addCard(new ShieldOfProtection());  //15
         BaseMod.addCard(new SelfSacrifice());       //16
         BaseMod.addCard(new SneakyPlan());          //17
-        BaseMod.addCard(new SpikyArmor());          //18
+        BaseMod.addCard(new CombatArmor());          //18
         BaseMod.addCard(new TrueAdvantage());       //19
         BaseMod.addCard(new LightWeightArmor());    //20
         BaseMod.addCard(new ShieldingTactics());    //21
         BaseMod.addCard(new StraightPlan());        //22
         BaseMod.addCard(new Ambush());              //23
         BaseMod.addCard(new TeamWork());            //24
-        BaseMod.addCard(new LastEffort());          //25
+        BaseMod.addCard(new LastResort());          //25
         BaseMod.addCard(new RestAssured());         //26
         BaseMod.addCard(new LivingShells());        //27
         BaseMod.addCard(new NoMoreOptions());       //28
@@ -239,10 +239,10 @@ public class TheFairyMod implements
         BaseMod.addCard(new Juggernaut());          //10
         BaseMod.addCard(new JaggedGround());        //11
         BaseMod.addCard(new APR());                 //12
-        BaseMod.addCard(new SpikedAmmo());          //13
+        BaseMod.addCard(new Shrapnel());          //13
         BaseMod.addCard(new EfficientAmmo());       //14
         BaseMod.addCard(new ExtraAmmo());           //15
-        BaseMod.addCard(new ExplosiveForm());       //16
+        BaseMod.addCard(new BlazingForm());       //16
 
 
 
@@ -253,7 +253,7 @@ public class TheFairyMod implements
         UnlockTracker.unlockCard(FairyStrike.ID);           //1
         UnlockTracker.unlockCard(FairyDefend.ID);           //2
         UnlockTracker.unlockCard(Ammo.ID);                  //3
-        UnlockTracker.unlockCard(DoubleShot.ID);            //4
+        UnlockTracker.unlockCard(SplitShot.ID);            //4
 
 
         //COMMON CARDS 21
@@ -298,14 +298,14 @@ public class TheFairyMod implements
         UnlockTracker.unlockCard(ShieldOfProtection.ID);    //15
         UnlockTracker.unlockCard(SelfSacrifice.ID);         //16
         UnlockTracker.unlockCard(SneakyPlan.ID);            //17
-        UnlockTracker.unlockCard(SpikyArmor.ID);            //18
+        UnlockTracker.unlockCard(CombatArmor.ID);            //18
         UnlockTracker.unlockCard(TrueAdvantage.ID);         //19
         UnlockTracker.unlockCard(LightWeightArmor.ID);      //20
         UnlockTracker.unlockCard(ShieldingTactics.ID);      //21
         UnlockTracker.unlockCard(StraightPlan.ID);          //22
         UnlockTracker.unlockCard(Ambush.ID);                //23
         UnlockTracker.unlockCard(TeamWork.ID);              //24
-        UnlockTracker.unlockCard(LastEffort.ID);            //25
+        UnlockTracker.unlockCard(LastResort.ID);            //25
         UnlockTracker.unlockCard(RestAssured.ID);           //26
         UnlockTracker.unlockCard(LivingShells.ID);          //27
         UnlockTracker.unlockCard(NoMoreOptions.ID);         //28
@@ -330,10 +330,10 @@ public class TheFairyMod implements
         UnlockTracker.unlockCard(Juggernaut.ID);        //10
         UnlockTracker.unlockCard(JaggedGround.ID);      //11
         UnlockTracker.unlockCard(APR.ID);               //12
-        UnlockTracker.unlockCard(SpikedAmmo.ID);        //13
+        UnlockTracker.unlockCard(Shrapnel.ID);        //13
         UnlockTracker.unlockCard(EfficientAmmo.ID);     //14
         UnlockTracker.unlockCard(ExtraAmmo.ID);         //15
-        UnlockTracker.unlockCard(ExplosiveForm.ID);     //16
+        UnlockTracker.unlockCard(BlazingForm.ID);     //16
 
 
         logger.info("Done adding cards!");

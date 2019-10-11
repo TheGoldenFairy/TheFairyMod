@@ -17,10 +17,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static TheFairyMod.TheFairyMod.makeCardPath;
 
-public class DoubleShot extends AbstractFairyCard {
+public class SplitShot extends AbstractFairyCard {
 
     //card Info
-    public static final String ID = TheFairyMod.makeID("DoubleShot");
+    public static final String ID = TheFairyMod.makeID("SplitShot");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG = makeCardPath("Attack.png");
     private static final String NAME = cardStrings.NAME;
@@ -34,13 +34,13 @@ public class DoubleShot extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 6;
     private static final int UPGRADE_PLUS_DMG = 1;
     private static final int BLEED_AMT = 1;
     private static final int BULLET_AMT = 1;
 
     //card Initialize
-    public DoubleShot() {
+    public SplitShot() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BULLET_AMT;

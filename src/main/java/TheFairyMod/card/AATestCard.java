@@ -38,7 +38,7 @@ public class AATestCard extends AbstractFairyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new DoubleShot()));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new SplitShot()));
     }
 
     // Upgraded stats.

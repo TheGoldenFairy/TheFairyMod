@@ -32,7 +32,7 @@ public class HiddenStash extends AbstractFairyCard {
     //card Number
     private static final int COST = 1;
     private static final int BLOCK = 5;
-    private static final int BULLET_AMT = 1;
+    private static final int BULLET_AMT = 2;
     private static final int UPGRADE_PLUS = 1;
 
     //card Initialize

@@ -11,9 +11,9 @@
     "NAME": "Ammo",
     "DESCRIPTION": "Gain !M! thefairymod:Bullets."
   },
-  "TheFairyMod:DoubleShot": {
-    "NAME": "Double Shot",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullet. NL Deal !D! damage twice. Apply 1 thefairymod:Bleed."
+  "TheFairyMod:SplitShot": {
+    "NAME": "Split Shot",
+    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullet. NL Deal !D! damage twice. NL Apply 1 thefairymod:Bleed."
   },
   "TheFairyMod:QuickShot": {
     "NAME": "Quick Shot",
@@ -78,7 +78,7 @@
   },
   "TheFairyMod:HardenHelmet": {
     "NAME": "Harden Helmet",
-    "DESCRIPTION": "Gain !B! Block. Apply !TheFairyMod:SecondMagic! Bleed."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !TheFairyMod:SecondMagic! Bleed."
   },
   "TheFairyMod:SpeedyReload": {
     "NAME": "Speedy Reload",
@@ -86,10 +86,10 @@
   },
   "TheFairyMod:QuickThinking": {
     "NAME": "Quick Thinking",
-    "DESCRIPTION": "thefairymod:Requires !B! Block. Apply !M! Weak and  !TheFairyMod:SecondMagic! Vulnerable."
+    "DESCRIPTION": "thefairymod:Requires !B! Block. NL Apply !M! Weak and  !TheFairyMod:SecondMagic! Vulnerable."
   },
   "TheFairyMod:BarbedWire": {
-    "NAME": "BarbedWire",
+    "NAME": "Barbed Wire",
     "DESCRIPTION": "Apply !TheFairyMod:SecondMagic! thefairymod:Bleed."
   },
   "TheFairyMod:HastyRetreat": {
@@ -156,7 +156,7 @@
   },
   "TheFairyMod:RGP": {
     "NAME": "RGP",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullets. NL Deal !D! damage. NL Apply !TheFairyMod:SecondMagic! thefairymod:Bleed."
+    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullets. NL Deal !D! damage and apply !TheFairyMod:SecondMagic! thefairymod:Bleed to ALL enemies."
   },
   "TheFairyMod:ShieldOfProtection": {
     "NAME": "ShieldOfProtection",
@@ -171,8 +171,8 @@
     "NAME": "Sneaky Plan",
     "DESCRIPTION": "Add a random skill card to your hand. NL It costs 0 this turn and exhausts when played. NL Exhaust."
   },
-  "TheFairyMod:SpikyArmor": {
-    "NAME": "Spiky Armor  ",
+  "TheFairyMod:CombatArmor": {
+    "NAME": "Combat Armor  ",
     "DESCRIPTION": "Gain !B! Block. NL Apply !M! thefairymod:Bleed."
   },
   "TheFairyMod:TrueAdvantage": {
@@ -193,14 +193,14 @@
   },
   "TheFairyMod:Ambush": {
     "NAME": "Ambush",
-    "DESCRIPTION": "Remove all Block from an enemy. Exhaust."
+    "DESCRIPTION": "Remove all Block from an enemy. NL Exhaust."
   },
   "TheFairyMod:TeamWork": {
     "NAME": "Teamwork",
     "DESCRIPTION": "Pick up to !M! cards and Exhaust them."
   },
-  "TheFairyMod:LastEffort": {
-    "NAME": "Last Effort",
+  "TheFairyMod:LastResort": {
+    "NAME": "Last Resort",
     "DESCRIPTION": "Ethereal. NL Create a copy of the next card that Exhausts and add it to your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Create a copy of the next card that Exhausts and add it to your draw pile. NL Exhaust."
   },
@@ -240,7 +240,7 @@
   },
   "TheFairyMod:ShottyReload": {
     "NAME": "Shotty Reload",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Bullet."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! thefairymod:Bullet."
   },
   "TheFairyMod:MachineGun": {
     "NAME": "Machine Gun",
@@ -288,8 +288,8 @@
     "NAME": "APR",
     "DESCRIPTION": "All Attacks thefairymod:Requiring thefairymod:Bullets deal !M! more damage."
   },
-  "TheFairyMod:SpikedAmmo": {
-    "NAME": "Spiked Ammo",
+  "TheFairyMod:Shrapnel": {
+    "NAME": "Shrapnel",
     "DESCRIPTION": "Whenever an attack deals unblocked damage apply !M! thefairymod:Bleed."
   },
   "TheFairyMod:ExtraAmmo": {
@@ -306,8 +306,8 @@
     "NAME": "PowerMove",
     "DESCRIPTION": "At the start of your turn Exhaust up to !M! cards."
   },
-  "TheFairyMod:ExplosiveForm": {
-    "NAME": "ExplosiveForm",
+  "TheFairyMod:BlazingForm": {
+    "NAME": "Blazing Form",
     "DESCRIPTION": "Ethereal. NL The first attack you play each turn deals double damage.",
     "UPGRADE_DESCRIPTION": "The first attack you play each turn deals double damage."
   },

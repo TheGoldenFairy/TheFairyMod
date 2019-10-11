@@ -33,9 +33,9 @@ public class PewPewMachine extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int DAMAGE = 9;
-    private static final int UPGRADE_PLUS = 3;
-    private static final int BULLET_AMT = 2;
+    private static final int DAMAGE = 18;
+    private static final int UPGRADE_PLUS = 4;
+    private static final int BULLET_AMT = 3;
     private static final int BLEED_AMT = 2;
 
     //card Initialize

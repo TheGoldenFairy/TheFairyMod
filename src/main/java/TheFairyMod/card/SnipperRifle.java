@@ -34,10 +34,10 @@ public class SnipperRifle extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 3;
-    private static final int DAMAGE = 32;
+    private static final int DAMAGE = 43;
     private static final int UPGRADE_PLUS_DMG = 5;
-    private static final int BULLET_AMT = 3;
-    private static final int BLEED_AMT = 3;
+    private static final int BULLET_AMT = 7;
+    private static final int BLEED_AMT = 2;
 
     //card Initialize
     public SnipperRifle() {

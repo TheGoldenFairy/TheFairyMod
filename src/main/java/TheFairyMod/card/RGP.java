@@ -6,14 +6,18 @@ import TheFairyMod.power.BleedPower;
 import TheFairyMod.power.BulletPower;
 import TheFairyMod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
 import static TheFairyMod.TheFairyMod.makeCardPath;
 
@@ -34,8 +38,8 @@ public class RGP extends AbstractFairyCard {
     //card Number
     private static final int COST = 2;
     private static final int DAMAGE = 15;
-    private static final int UPGRADE_PLUS = 4;
-    private static final int BULLET_AMT = 3;
+    private static final int UPGRADE_PLUS = 5;
+    private static final int BULLET_AMT = 5;
     private static final int BLEED_AMT = 3;
 
     //card Initialize
@@ -44,6 +48,7 @@ public class RGP extends AbstractFairyCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BULLET_AMT;
         fairySecondMagicNumber = fairyBaseSecondMagicNumber = BLEED_AMT;
+        isMultiDamage = true;
         tags.add(CustomTags.BULLET);
         tags.add(CustomTags.REQUIRES);
     }
@@ -62,8 +67,12 @@ public class RGP extends AbstractFairyCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, fairySecondMagicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new CleaveEffect(), 0.1F));
+        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+        for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(mo, fairySecondMagicNumber)));
+        }
     }
 
     // Upgraded stats.

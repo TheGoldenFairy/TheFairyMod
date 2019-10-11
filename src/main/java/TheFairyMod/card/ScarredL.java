@@ -33,9 +33,9 @@ public class ScarredL extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 2;
-    private static final int DAMAGE = 7;
-    private static final int BLOCK = 10;
-    private static final int UPGRADE_PLUS = 3;
+    private static final int DAMAGE = 13;
+    private static final int BLOCK = 13;
+    private static final int UPGRADE_PLUS = 4;
     private static final int BULLET_AMT = 2;
 
     //card Initialize

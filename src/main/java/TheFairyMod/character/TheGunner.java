@@ -2,7 +2,7 @@ package TheFairyMod.character;
 
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.card.Ammo;
-import TheFairyMod.card.DoubleShot;
+import TheFairyMod.card.SplitShot;
 import TheFairyMod.card.FairyDefend;
 import TheFairyMod.card.FairyStrike;
 import TheFairyMod.relic.SwitchBlade;
@@ -165,7 +165,7 @@ public class TheGunner extends CustomPlayer {
         retValCards.add(FairyDefend.ID);
 
         retValCards.add(Ammo.ID);
-        retValCards.add(DoubleShot.ID);
+        retValCards.add(SplitShot.ID);
 
         return retValCards;
     }
