@@ -26,7 +26,7 @@ public class BatterFlyKnife extends CustomRelic {
     private static final int BULLET_AMT = 2;
 
     public BatterFlyKnife() {
-        super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.BOSS, AbstractRelic.LandingSound.MAGICAL);
     }
 
     // Flash at the start of Battle.
@@ -37,6 +37,11 @@ public class BatterFlyKnife extends CustomRelic {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, AbstractDungeon.player, new BleedPower(mo, BLEED_AMT)));
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BulletPower(AbstractDungeon.player, BULLET_AMT)));
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return AbstractDungeon.player.hasRelic(SwitchBlade.ID);
     }
 
     // Description
