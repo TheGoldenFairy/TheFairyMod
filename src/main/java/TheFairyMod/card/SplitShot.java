@@ -37,7 +37,7 @@ public class SplitShot extends AbstractFairyCard {
     private static final int COST = 1;
     private static final int DAMAGE = 3;
     private static final int UPGRADE_PLUS_DMG = 1;
-    private static final int ADDITIONAL_DAMAGE = 4;
+    private static final int ADDITIONAL_DAMAGE = 2;
     private static final int BLEED_AMT = 1;
     private static final int BULLET_AMT = 1;
 
@@ -62,12 +62,12 @@ public class SplitShot extends AbstractFairyCard {
         if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, BLEED_AMT)));
-            fairySecondMagicNumber = fairyBaseSecondMagicNumber;
         }
     }
 
+    //Calculate Modified Damage
     @Override
-    public float calculateModifiedCardDamage(AbstractPlayer player, float tmp) {
+    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster m, float tmp) {
         if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
             tmp += ADDITIONAL_DAMAGE;
         }

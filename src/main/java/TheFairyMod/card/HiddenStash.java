@@ -31,9 +31,10 @@ public class HiddenStash extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int BLOCK = 5;
-    private static final int BULLET_AMT = 2;
-    private static final int UPGRADE_PLUS = 1;
+    private static final int BLOCK = 7;
+    private static final int UPGRADE_PLUS = 3;
+    private static final int BULLET_AMT = 3;
+    private static final int BULLET_PLUS_AMT = 2;
 
     //card Initialize
     public HiddenStash() {
@@ -53,7 +54,8 @@ public class HiddenStash extends AbstractFairyCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS);
+            upgradeBlock(UPGRADE_PLUS);
+            upgradeMagicNumber(BULLET_PLUS_AMT);
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

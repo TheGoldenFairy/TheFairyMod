@@ -2,10 +2,13 @@ package TheFairyMod.card;
 
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
+import TheFairyMod.power.BleedPower;
 import TheFairyMod.power.BulletPower;
 import TheFairyMod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -31,41 +34,44 @@ public class OpenFire extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 2;
-    private static final int DAMAGE = 15;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int DAMAGE = 10;
+    private static final int UPGRADE_PLUS_DMG = 2;
     private static final int BULLET_AMT = 3;
-    private static final int ADDITIONAL_DAG = 4;
-    private static final int UPGRADE_PLUS = 4;
+    private static final int ADDITIONAL_DAMAGE = 5;
+    private static final int ADDITIONAL_DAMAGE_PLUS = 2;
+    private static final int BLEED_AMT = 2;
 
     //card Initialize
     public OpenFire() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BULLET_AMT;
-        fairySecondMagicNumber = fairyBaseSecondMagicNumber = ADDITIONAL_DAG;
+        fairySecondMagicNumber = fairyBaseSecondMagicNumber = ADDITIONAL_DAMAGE;
         tags.add(CustomTags.BULLET);
         tags.add(CustomTags.REQUIRES);
-    }
-
-    @Override
-    public boolean cardPlayable(AbstractMonster m) {
-        if(!AbstractDungeon.player.hasPower(BulletPower.POWER_ID)) {
-            return false;
-        }
-
-        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount < magicNumber) {
-            return false;
-        }
-        return true;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //Normal Action
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        if(AbstractDungeon.actionManager.cardsPlayedThisTurn.size() <= 1) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage - 11, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+
+        //Bullet Required Action
+        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, BLEED_AMT)));
         }
+
+    }
+
+    //Calculate Modified Damage
+    @Override
+    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster m, float tmp) {
+        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
+            tmp += fairySecondMagicNumber;
+        }
+        return tmp;
     }
 
     // Upgraded stats.
@@ -74,7 +80,7 @@ public class OpenFire extends AbstractFairyCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeFairySecondMagicNumber(UPGRADE_PLUS);
+            upgradeFairySecondMagicNumber(ADDITIONAL_DAMAGE_PLUS);
             initializeDescription();
         }
     }

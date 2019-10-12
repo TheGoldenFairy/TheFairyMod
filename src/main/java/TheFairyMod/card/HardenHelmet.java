@@ -31,9 +31,10 @@ public class HardenHelmet extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int BLOCK = 4;
+    private static final int BLOCK = 7;
+    private static final int UPGRADE_PLUS = 3;
     private static final int BLEED_AMT = 1;
-    private static final int UPGRADE_PLUS = 1;
+    private static final int BLEED_PLUS_AMT = 1;
 
     //card Initialize
     public HardenHelmet() {
@@ -53,7 +54,8 @@ public class HardenHelmet extends AbstractFairyCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS);
+            upgradeBlock(UPGRADE_PLUS);
+            upgradeMagicNumber(BLEED_PLUS_AMT);
             initializeDescription();
         }
     }

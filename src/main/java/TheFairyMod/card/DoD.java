@@ -3,8 +3,10 @@ package TheFairyMod.card;
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
 import TheFairyMod.power.NextTurnDrawAndEnergyPower;
+import TheFairyMod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,11 +32,11 @@ public class DoD extends AbstractFairyCard {
     private static final CardColor COLOR = TheGunner.Enums.COLOR_BROWN;
 
     //card Number
-    private static final int COST = 2;
-    private static final int BLOCK = 3;
+    private static final int COST = 1;
+    private static final int NEW_COST = 0;
+    private static final int BLOCK = 6;
     private static final int BLOCK_REQ = 4;
     private static final int CARD_DRAW_AMT = 2;
-    private static final int UPGRADE_PLUS = 1;
     private static final int ENERGY_AMT = 1;
     private static final int POWER_AMT = 1;
 
@@ -44,20 +46,19 @@ public class DoD extends AbstractFairyCard {
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber =  CARD_DRAW_AMT;
         fairySecondMagicNumber = fairyBaseSecondMagicNumber = BLOCK_REQ;
-    }
-
-    @Override
-    public boolean cardPlayable(AbstractMonster m) {
-        if(AbstractDungeon.player.currentBlock < fairySecondMagicNumber) {
-            return false;
-        }
-        return true;
+        tags.add(CustomTags.REQUIRES);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //Requires Block Action
+        if (AbstractDungeon.player.currentBlock < fairySecondMagicNumber) {
+            AbstractDungeon.actionManager.addToBottom(new LoseBlockAction(p, p, fairySecondMagicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnDrawAndEnergyPower(p, POWER_AMT, magicNumber, ENERGY_AMT)));
+        }
+
+        //Normal Action
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnDrawAndEnergyPower(p, POWER_AMT, magicNumber, ENERGY_AMT)));
     }
 
     // Upgraded stats.
@@ -65,7 +66,7 @@ public class DoD extends AbstractFairyCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS);
+            upgradeBaseCost(NEW_COST);
             initializeDescription();
         }
     }

@@ -2,6 +2,8 @@ package TheFairyMod.card;
 
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
+import TheFairyMod.power.BulletPower;
+import TheFairyMod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -34,19 +36,28 @@ public class Bunker extends AbstractFairyCard {
     private static final int DAMAGE = 5;
     private static final int BLOCK = 5;
     private static final int UPGRADE_PLUS = 2;
+    private static final int BULLET_AMT = 1;
 
     //card Initialize
     public Bunker() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseBlock = BLOCK;
+        magicNumber = baseMagicNumber = BULLET_AMT;
+        tags.add(CustomTags.BULLET);
+        tags.add(CustomTags.REQUIRES);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        //Normal Action
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+
+        //Bullet Required Action
+        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        }
     }
 
     // Upgraded stats.

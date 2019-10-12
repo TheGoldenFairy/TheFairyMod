@@ -2,8 +2,10 @@ package TheFairyMod.card;
 
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
+import TheFairyMod.power.BulletPower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,9 +32,10 @@ public class OptimalDecision extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int BLOCK = 5;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
+    private static final int BLOCK = 7;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
     private static final int CARD_DRAW_AMT = 2;
+    private static final int CARD_DRAW_PLUS = 1;
 
     //card Initialize
     public OptimalDecision() {
@@ -43,8 +46,14 @@ public class OptimalDecision extends AbstractFairyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //Normal Action
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
+
+        //Bullet Required Action
+        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
+        }
     }
 
     // Upgraded stats.
@@ -53,6 +62,7 @@ public class OptimalDecision extends AbstractFairyCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
+            upgradeMagicNumber(CARD_DRAW_PLUS);
             initializeDescription();
         }
     }

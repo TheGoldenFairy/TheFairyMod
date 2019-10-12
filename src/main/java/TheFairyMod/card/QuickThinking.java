@@ -33,8 +33,8 @@ public class QuickThinking extends AbstractFairyCard {
     private static final int COST = 1;
     private static final int BLOCK_REQ = 4;
     private static final int WEAK_AMT = 2;
-    private static final int VUL_AMT = 1;
-    private static final int UPGRADE_PLUS = 1;
+    private static final int VUL_AMT = 2;
+    private static final int UPGRADE_PLUS = 4;
 
     //card Initialize
     public QuickThinking() {

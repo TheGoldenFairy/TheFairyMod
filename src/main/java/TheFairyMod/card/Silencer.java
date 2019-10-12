@@ -31,7 +31,7 @@ public class Silencer extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 9;
     private static final int UPGRADE_PLUS_DMG = 3;
     private static final int DISCARD_AMT = 1;
 

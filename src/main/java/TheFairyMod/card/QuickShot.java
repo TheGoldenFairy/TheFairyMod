@@ -8,6 +8,8 @@ import TheFairyMod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -36,8 +38,9 @@ public class QuickShot extends AbstractFairyCard {
     private static final int COST = 0;
     private static final int DAMAGE = 2;
     private static final int UPGRADE_PLUS_DMG = 1;
-    private static final int BLEED_AMT = 1;
+    private static final int BLEED_AMT = 2;
     private static final int BULLET_AMT = 1;
+    private static final int CARD_DRAW = 1;
 
     //card Initialize
     public QuickShot() {
@@ -49,24 +52,18 @@ public class QuickShot extends AbstractFairyCard {
         tags.add(CustomTags.REQUIRES);
     }
 
-    @Override
-    public boolean cardPlayable(AbstractMonster m) {
-        if(!AbstractDungeon.player.hasPower(BulletPower.POWER_ID)) {
-            return false;
-        }
-
-        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount < magicNumber) {
-            return false;
-        }
-        return true;
-    }
-
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, BLEED_AMT)));
+        //Normal Action
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, CARD_DRAW, false));
 
+        //Bullet Required Action
+        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, fairySecondMagicNumber)));
+        }
     }
 
     // Upgraded stats.

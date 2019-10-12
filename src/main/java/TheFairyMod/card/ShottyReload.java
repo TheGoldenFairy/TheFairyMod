@@ -34,7 +34,8 @@ public class ShottyReload extends AbstractFairyCard {
     private static final int COST = 0;
     private static final int DAMAGE = 3;
     private static final int UPGRADE_PLUS_DMG = 1;
-    private static final int BULLET_AMT = 1;
+    private static final int BULLET_AMT = 2;
+    private static final int BULLET_PLUS_AMT = 1;
 
     //card Initialize
     public ShottyReload() {
@@ -56,6 +57,7 @@ public class ShottyReload extends AbstractFairyCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(BULLET_PLUS_AMT);
             initializeDescription();
         }
     }
