@@ -41,17 +41,6 @@ public class BulletPower extends AbstractPower {
         updateDescription();
     }
 
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if(card.hasTag(CustomTags.REQUIRES) && AbstractDungeon.player.hasPower(ID)) {
-            amount -= card.magicNumber;
-            if(amount <= 0) {
-                amount = 0;
-            }
-        }
-    }
-
-
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override

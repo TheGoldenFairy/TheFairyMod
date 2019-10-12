@@ -4,6 +4,7 @@ import TheFairyMod.power.APRPower;
 import TheFairyMod.util.CustomTags;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public abstract class AbstractFairyCard extends CustomCard {
     public int fairySecondMagicNumber;        // Just like magic number, or any number for that matter, we want our regular, modifiable stat
@@ -49,16 +50,8 @@ public abstract class AbstractFairyCard extends CustomCard {
     }
 
 
-
     @Override
-    public void applyPowers() {
-        int tmp = baseDamage;
-        if (hasTag(CustomTags.REQUIRES) && hasTag(CustomTags.BULLET)) {
-            if(AbstractDungeon.player.hasPower(APRPower.POWER_ID)) {
-                baseDamage+=AbstractDungeon.player.getPower(APRPower.POWER_ID).amount;
-            }
-        }
-        super.applyPowers();
-        baseDamage = tmp;
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
     }
 }

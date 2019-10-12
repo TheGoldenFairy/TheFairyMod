@@ -13,7 +13,7 @@
   },
   "TheFairyMod:SplitShot": {
     "NAME": "Split Shot",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullet. NL Deal !D! damage twice. NL Apply 1 thefairymod:Bleed."
+    "DESCRIPTION": "Deal !D! damage twice. NL thefairymod:Spend !M! thefairymod:Bullet to Deal !TheFairyMod:SecondMagic! additional damage and apply 1 thefairymod:Bleed."
   },
   "TheFairyMod:QuickShot": {
     "NAME": "Quick Shot",

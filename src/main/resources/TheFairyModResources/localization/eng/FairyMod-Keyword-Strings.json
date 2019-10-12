@@ -15,10 +15,9 @@
   },
   {
     "NAMES": [
-      "requires",
-      "required",
-      "requiring",
-      "require"
+      "spend",
+      "spends",
+      "spending"
     ],
     "DESCRIPTION": "Need and lose X amount."
   }
