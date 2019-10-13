@@ -21,7 +21,6 @@ public class HiddenStash extends AbstractFairyCard {
     private static final String IMG = makeCardPath("Skill.png");
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     //card Stats
     private static final CardRarity RARITY = CardRarity.COMMON;
@@ -56,7 +55,6 @@ public class HiddenStash extends AbstractFairyCard {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS);
             upgradeMagicNumber(BULLET_PLUS_AMT);
-            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

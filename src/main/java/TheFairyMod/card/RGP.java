@@ -68,10 +68,9 @@ public class RGP extends AbstractFairyCard {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new CleaveEffect(), 0.1F));
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
             for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(mo, fairySecondMagicNumber)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new BleedPower(mo, fairySecondMagicNumber)));
             }
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
-
         }
     }
 

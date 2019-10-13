@@ -18,8 +18,8 @@ import static TheFairyMod.TheFairyMod.makeRelicPath;
 public class SwitchBlade extends CustomRelic {
 
     public static final String ID = TheFairyMod.makeID("SwitchBlade");
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("SwitchBlade_Relic.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("SwitchBlade_Relic.png"));
 
     private static final int BLEED_AMT = 2;
     private static final int BULLET_AMT = 2;

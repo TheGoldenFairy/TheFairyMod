@@ -53,7 +53,7 @@
   },
   "TheFairyMod:MoralLesson": {
     "NAME": "Moral Lesson",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL thefairymod:Spend !M! Strength. NL Deal an !D! damage."
+    "DESCRIPTION": "Deal !D! damage twice. NL Apply !M! Weak. NL thefairymod:Spend !M! Strength to Deal !D! damage."
   },
   "TheFairyMod:OpenFire": {
     "NAME": "Open Fire",
@@ -73,8 +73,7 @@
   },
   "TheFairyMod:HiddenStash": {
     "NAME": "Hidden Stash",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! thefairymod:Bullet.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! thefairymod:Bullets."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! thefairymod:Bullets."
   },
   "TheFairyMod:HardenHelmet": {
     "NAME": "Harden Helmet",
@@ -98,7 +97,7 @@
   },
   "TheFairyMod:DoD": {
     "NAME": "DoD",
-    "DESCRIPTION": "Gain !B! Block. NL thefairymod:Spend !TheFairyMod:SecondMagic! Block. NL Gain !B! Block to draw !M! cards and gain [E] next turn."
+    "DESCRIPTION": "Gain !B! Block. NL thefairymod:Spend !TheFairyMod:SecondMagic! Block to Gain !B! Block to draw !M! cards and gain [E] next turn."
   },
   "TheFairyMod:PistolShot": {
     "NAME": "Pistal Shot",
@@ -126,7 +125,7 @@
   },
   "TheFairyMod:FlashGrenade": {
     "NAME": "Flash Grenade",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thefairymod:Spend !M! thefairymod:Bullet to Stun ALL enemies."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thefairymod:Spend !M! thefairymod:Bullet to Stun ALL enemies. NL Exhaust"
   },
   "TheFairyMod:MagnaPistal": {
     "NAME": "MagnaPistal",
