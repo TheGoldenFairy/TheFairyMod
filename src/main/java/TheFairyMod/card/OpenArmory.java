@@ -34,7 +34,7 @@ public class OpenArmory extends AbstractFairyCard {
     //card Number
     private static final int COST = 2;
     private static final int NEW_COST = 1;
-    private static final int BULLET_AMT = 10;
+    private static final int BULLET_AMT = 15;
 
 
     //card Initialize

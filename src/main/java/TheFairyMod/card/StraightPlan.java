@@ -38,9 +38,8 @@ public class StraightPlan extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int BLEED_AMT = 2;
+    private static final int BLEED_AND_VUL_AMT = 2;
     private static final int UPGRADE_PLUS = 1;
-    private static final int VUL_AMT = 2;
     private static final int BULLET_AMT = 1;
     private static final int BLEED_ADDITIONAL_AMT = 2;
 
@@ -48,7 +47,7 @@ public class StraightPlan extends AbstractFairyCard {
     public StraightPlan() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BULLET_AMT;
-        fairySecondMagicNumber = fairyBaseSecondMagicNumber = BLEED_AMT;
+        fairySecondMagicNumber = fairyBaseSecondMagicNumber = BLEED_AND_VUL_AMT;
         tags.add(CustomTags.REQUIRES);
     }
 
@@ -56,7 +55,7 @@ public class StraightPlan extends AbstractFairyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //Normal Action
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, fairyBaseSecondMagicNumber)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, VUL_AMT, true)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, fairySecondMagicNumber, true)));
 
         //Bullet Required Action
         if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {

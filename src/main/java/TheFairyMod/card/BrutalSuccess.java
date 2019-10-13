@@ -48,6 +48,7 @@ public class BrutalSuccess extends AbstractFairyCard {
         tags.add(CustomTags.REQUIRES);
         magicNumber = baseMagicNumber = BULLET_AMT;
         fairySecondMagicNumber = fairyBaseSecondMagicNumber = ADDITIONAL_STRENGTH;
+        exhaust = true;
     }
 
     @Override

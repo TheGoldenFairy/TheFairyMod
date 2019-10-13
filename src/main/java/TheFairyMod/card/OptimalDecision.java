@@ -36,12 +36,14 @@ public class OptimalDecision extends AbstractFairyCard {
     private static final int UPGRADE_PLUS_BLOCK = 3;
     private static final int CARD_DRAW_AMT = 2;
     private static final int CARD_DRAW_PLUS = 1;
+    private static final int BULLET_AMT = 1;
 
     //card Initialize
     public OptimalDecision() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
-        magicNumber = baseMagicNumber = CARD_DRAW_AMT;
+        magicNumber = baseMagicNumber = BULLET_AMT;
+        fairySecondMagicNumber = fairyBaseSecondMagicNumber = CARD_DRAW_AMT;
     }
 
     @Override
@@ -52,7 +54,7 @@ public class OptimalDecision extends AbstractFairyCard {
         //Bullet Required Action
         if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, fairySecondMagicNumber));
         }
     }
 
@@ -62,7 +64,7 @@ public class OptimalDecision extends AbstractFairyCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeMagicNumber(CARD_DRAW_PLUS);
+            upgradeFairySecondMagicNumber(CARD_DRAW_PLUS);
             initializeDescription();
         }
     }

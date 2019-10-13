@@ -40,7 +40,7 @@ public class Ambush extends AbstractFairyCard {
     private static final int COST = 1;
     private static final int BULLET_AMT = 2;
     private static final int WEAK_AND_VUL_AMT = 2;
-    private static final int WEAK_AND_VUL_AMT_PLUS = 1;
+    private static final int WEAK_AND_VUL_AMT_PLUS = 2;
 
     //card Initialize
     public Ambush() {

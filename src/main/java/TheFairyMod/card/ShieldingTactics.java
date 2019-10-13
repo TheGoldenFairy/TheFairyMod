@@ -2,7 +2,6 @@ package TheFairyMod.card;
 
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
-import TheFairyMod.power.NextTurnDrawAndEnergyPower;
 import TheFairyMod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -67,7 +66,7 @@ public class ShieldingTactics extends AbstractFairyCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(BLOCK_PLUS);
-            upgradeMagicNumber(BLOCK_NEXT_TURN_UPGRADE);
+            upgradeFairySecondMagicNumber(BLOCK_NEXT_TURN_UPGRADE);
             initializeDescription();
         }
     }

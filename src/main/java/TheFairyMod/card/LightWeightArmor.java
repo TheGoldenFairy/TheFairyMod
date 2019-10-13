@@ -39,12 +39,14 @@ public class LightWeightArmor extends AbstractFairyCard {
     private static final int BLOCK_PLUS = 2;
     private static final int ENERGY_AMT = 2;
     private static final int BLOCK_REQ = 4;
+    private static final int BULLET_AMT = 2;
 
     //card Initialize
     public LightWeightArmor() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber = BLOCK_REQ;
+        fairySecondMagicNumber = fairyBaseSecondMagicNumber = BULLET_AMT;
         tags.add(CustomTags.REQUIRES);
     }
 
@@ -58,7 +60,7 @@ public class LightWeightArmor extends AbstractFairyCard {
 
         //Normal Action
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BulletPower(p, magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BulletPower(p, fairySecondMagicNumber)));
     }
 
     // Upgraded stats.
