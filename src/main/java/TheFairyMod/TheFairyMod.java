@@ -240,7 +240,7 @@ public class TheFairyMod implements
         BaseMod.addCard(new JaggedGround());        //11
         BaseMod.addCard(new APR());                 //12
         BaseMod.addCard(new Shrapnel());          //13
-        BaseMod.addCard(new EfficientAmmo());       //14
+        BaseMod.addCard(new EfficientWork());       //14
         BaseMod.addCard(new ExtraAmmo());           //15
         BaseMod.addCard(new BlazingForm());       //16
 
@@ -331,7 +331,7 @@ public class TheFairyMod implements
         UnlockTracker.unlockCard(JaggedGround.ID);      //11
         UnlockTracker.unlockCard(APR.ID);               //12
         UnlockTracker.unlockCard(Shrapnel.ID);        //13
-        UnlockTracker.unlockCard(EfficientAmmo.ID);     //14
+        UnlockTracker.unlockCard(EfficientWork.ID);     //14
         UnlockTracker.unlockCard(ExtraAmmo.ID);         //15
         UnlockTracker.unlockCard(BlazingForm.ID);     //16
 

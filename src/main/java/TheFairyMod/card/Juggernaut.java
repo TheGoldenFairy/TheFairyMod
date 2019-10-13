@@ -3,7 +3,10 @@ package TheFairyMod.card;
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
 import TheFairyMod.power.BleedPower;
+import TheFairyMod.power.BulletPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,22 +33,30 @@ public class Juggernaut extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 2;
-    private static final int BLOCK_AMT = 15;
-    private static final int BLOCK_PLUS_AMT = 5;
+    private static final int BLOCK_AMT = 17;
+    private static final int BLOCK_PLUS_AMT = 7;
     private static final int BLEED_AMT = 2;
+    private static final int BULLET_AMT = 1;
 
 
     //card Initialize
     public Juggernaut() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK_AMT;
+        magicNumber = baseMagicNumber = BULLET_AMT;
         fairySecondMagicNumber = fairyBaseSecondMagicNumber = BLEED_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //Normal Action
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, fairySecondMagicNumber)));
+
+        //Bullet Required Action
+        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, fairySecondMagicNumber)));
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
+        }
     }
 
     // Upgraded stats.

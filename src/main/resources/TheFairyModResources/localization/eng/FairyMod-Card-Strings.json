@@ -13,7 +13,7 @@
   },
   "TheFairyMod:SplitShot": {
     "NAME": "Split Shot",
-    "DESCRIPTION": "Deal !D! damage twice. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! additional damage and apply 1 thefairymod:Bleed."
+    "DESCRIPTION": "Deal !D! damage twice. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! damage and apply 1 thefairymod:Bleed."
   },
   "TheFairyMod:QuickShot": {
     "NAME": "Quick Shot",
@@ -21,11 +21,11 @@
   },
   "TheFairyMod:22Pistal": {
     "NAME": ".22 Shot",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to apply !TheFairyMod:SecondMagic! Weak."
   },
   "TheFairyMod:Grenade": {
     "NAME": "Grenade",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! additional damage."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to deal !D! damage to ALL enemies."
   },
   "TheFairyMod:Silencer": {
     "NAME": "Silencer",
@@ -41,31 +41,31 @@
   },
   "TheFairyMod:BoneShattering": {
     "NAME": "Bone Shatter",
-    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! additional damage and apply 2 Vulnerable."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! damage and apply 2 Vulnerable."
   },
   "TheFairyMod:BreakingThrough": {
     "NAME": "Breaking Through",
-    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! additional damage and apply 2 Weak."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! damage and apply 2 Weak."
   },
   "TheFairyMod:LastingRecoil": {
     "NAME": "Lasting Recoil",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullet. NL Deal !D! damage. NL Gain 2 Weak. NL Apply !TheFairyMod:SecondMagic! thefairymod:Bleed."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! damage, gain 2 Weak and apply 2 thefairymod:Bleed."
   },
   "TheFairyMod:MoralLesson": {
     "NAME": "Moral Lesson",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL thefairymod:Requires !M! Strength. NL Deal an additional !D! damage."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL thefairymod:Requires !M! Strength. NL Deal an !D! damage."
   },
   "TheFairyMod:OpenFire": {
     "NAME": "Open Fire",
-    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! additional damage and apply 2 thefairymod:Bleed."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! damage and apply 2 thefairymod:Bleed."
   },
   "TheFairyMod:Reassess": {
     "NAME": "Reassess",
-    "DESCRIPTION": "Draw !M! cards. NL Exhaust 1 card. NL Become Entangled."
+    "DESCRIPTION": "Draw !M! cards. NL Exhaust 1 card. NL Become thefairymod:Entangled."
   },
   "TheFairyMod:HideInCover": {
     "NAME": "Hide In Cover",
-    "DESCRIPTION": "Gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block and gain !M! thefairymod:Bullets."
   },
   "TheFairyMod:OptimalDecision": {
     "NAME": "Optimal Decision",
@@ -86,7 +86,7 @@
   },
   "TheFairyMod:QuickThinking": {
     "NAME": "Quick Thinking",
-    "DESCRIPTION": "thefairymod:Requires !B! Block. NL Apply !M! Weak and  !TheFairyMod:SecondMagic! Vulnerable."
+    "DESCRIPTION": "Gain !M! thefairymod:Bullets and apply !TheFairyMod:SecondMagic! thefairymod:Bleed."
   },
   "TheFairyMod:BarbedWire": {
     "NAME": "Barbed Wire",
@@ -94,7 +94,7 @@
   },
   "TheFairyMod:HastyRetreat": {
     "NAME": "Hasty Retreat",
-    "DESCRIPTION": "Gain !B! Block. NL thefairymod:Requires 1 Dexterity. NL Gain an additional !M! Block."
+    "DESCRIPTION": "Gain !B! Block. NL thefairymod:Spend 1 Dexterity. NL Gain an !TheFairyMod:SecondMagic! Block."
   },
   "TheFairyMod:DoD": {
     "NAME": "DoD",
@@ -106,7 +106,7 @@
   },
   "TheFairyMod:FastArtillery": {
     "NAME": "Fast Artillery",
-    "DESCRIPTION": "Deal !D! damage. NL Add a Wound to your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to draw !TheFairyMod:SecondMagic! card and gain [E] ."
   },
   "TheFairyMod:DownButNotOut": {
     "NAME": "Down But Not Out",
@@ -122,32 +122,31 @@
   },
   "TheFairyMod:PiercingShot": {
     "NAME": "Piercing Shot",
-    "DESCRIPTION": "Deal !D! damage and apply 1 thefairymod:Bleed to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thefairymod:Spend !M! thefairymod:Bullet to apply 2 thefairymod:Bleed to ALL enemies."
   },
   "TheFairyMod:FlashGrenade": {
     "NAME": "Flash Grenade",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL  Next turn draw 1 card."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thefairymod:Spend !M! thefairymod:Bullet to Stun ALL enemies."
   },
   "TheFairyMod:MagnaPistal": {
     "NAME": "MagnaPistal",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullet. NL Deal !D! damage. NL Draw !TheFairyMod:SecondMagic! cards."
+    "DESCRIPTION": "Deal !D! damage and draw 1 card. NL thefairymod:Spend !M! thefairymod:Bullet to deal !TheFairyMod:SecondMagic! damage and draw 1 card."
   },
   "TheFairyMod:KA74": {
     "NAME": "KA-74",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullet. NL Deal !D! damage. NL Increase this cards damage by !TheFairyMod:SecondMagic! this combat."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullet to increase this cards damage by !TheFairyMod:SecondMagic! this combat."
   },
   "TheFairyMod:PewPewMachine": {
     "NAME": "Pew Pew Machine",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullets. NL Deal !D! damage. NL Apply !TheFairyMod:SecondMagic! thefairymod:Bleed."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullets to deal !TheFairyMod:SecondMagic! damage and apply 2 thefairymod:Bleed."
   },
   "TheFairyMod:ScarredL": {
     "NAME": "Scarred-L",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullets. NL Deal !D! damage. NL Gain !B! Block."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullets to gain !B! Block."
   },
   "TheFairyMod:FALT": {
     "NAME": "FALT",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullets. NL Deal !D! damage. Exhaust.",
-    "UPGRADE_DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullet. NL Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. NL thefairymod:Spend !M! thefairymod:Bullets to Deal !TheFairyMod:SecondMagic! damage."
   },
   "TheFairyMod:Bombardment": {
     "NAME": "Bombardment",
@@ -156,7 +155,7 @@
   },
   "TheFairyMod:RGP": {
     "NAME": "RGP",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullets. NL Deal !D! damage and apply !TheFairyMod:SecondMagic! thefairymod:Bleed to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thefairymod:Spend !M! thefairymod:Bullets to deal !D! damage and apply !TheFairyMod:SecondMagic! thefairymod:Bleed to ALL enemies."
   },
   "TheFairyMod:ShieldOfProtection": {
     "NAME": "ShieldOfProtection",
@@ -164,7 +163,7 @@
   },
   "TheFairyMod:SelfSacrifice": {
     "NAME": "Self Sacrifice",
-    "DESCRIPTION": "Loss 3 HP. NL Gain [E]. NL Draw !M! card. NL Exhaust",
+    "DESCRIPTION": "Lose 3 HP. NL Gain [E]. NL Draw !M! card. NL Exhaust",
     "UPGRADE_DESCRIPTION" : "Loss 3 HP. NL Gain [E]. NL Draw !M! cards. NL Exhaust"
   },
   "TheFairyMod:SneakyPlan": {
@@ -173,27 +172,27 @@
   },
   "TheFairyMod:CombatArmor": {
     "NAME": "Combat Armor  ",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !M! thefairymod:Bleed."
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! thefairymod:Bleed. NL Gain !TheFairyMod:SecondMagic! thefairymod:Bullets."
   },
   "TheFairyMod:TrueAdvantage": {
     "NAME": "True Advantage",
-    "DESCRIPTION": "Gain !B! Block. NL  If the enemy has thefairymod:Bleed, gain an additional !M! Block."
+    "DESCRIPTION": "Gain !B! Block. NL  If the enemy has thefairymod:Bleed, gain an additional !M! Block and gain 2 thefairymod:Bullets."
   },
   "TheFairyMod:LightWeightArmor": {
     "NAME": "Light Weight Armor",
-    "DESCRIPTION": "Gain !B! Block. NL Next turn gain [E] [E]."
+    "DESCRIPTION": "Gain !B! Block and gain !TheFairyMod:SecondMagic! thefairymod:Bullets. NL thefairymod:Spend !M! Block to gain [E] [E] next turn."
   },
   "TheFairyMod:ShieldingTactics": {
     "NAME": "Shielding Tactics",
-    "DESCRIPTION": "Gain !B! Block. NL Next turn gain !M! Block."
+    "DESCRIPTION": "Gain !B! Block. NL thefairymod:Spend !M! Block to gain !TheFairyMod:SecondMagic! Block next turn."
   },
   "TheFairyMod:StraightPlan": {
     "NAME": "Straight Plan",
-    "DESCRIPTION": "Apply !M! thefairymod:Bleed and !TheFairyMod:SecondMagic! Vulnerable."
+    "DESCRIPTION": "Apply !TheFairyMod:SecondMagic! thefairymod:Bleed and 2 Vulnerable. NL thefairymod:Spend !M! thefairymod:Bullet to apply 2 thefairymod:Bleed"
   },
   "TheFairyMod:Ambush": {
     "NAME": "Ambush",
-    "DESCRIPTION": "Remove all Block from an enemy. NL Exhaust."
+    "DESCRIPTION": "Remove all Block from an enemy. NL thefairymod:Spend !M! thefairymod:Bullet to apply !TheFairyMod:SecondMagic! Weak and Vulnerable."
   },
   "TheFairyMod:TeamWork": {
     "NAME": "Teamwork",
@@ -211,12 +210,11 @@
   },
   "TheFairyMod:LivingShells": {
     "NAME": "Living Shells",
-    "DESCRIPTION": "Gain !M! thefairymod:Bullets. NL Apply !TheFairyMod:SecondMagic! thefairymod:Bleed."
+    "DESCRIPTION": "Gain !TheFairyMod:SecondMagic! thefairymod:Bullets. NL thefairymod:Spend !M! thefairymod:Bullet to apply 5 thefairymod:Bleed."
   },
   "TheFairyMod:NoMoreOptions": {
     "NAME": "No More Options",
-    "DESCRIPTION": "At the start of your turn draw !M! card.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn draw !M! cards."
+    "DESCRIPTION": "At the start of your turn draw and discard !M! card."
   },
   "TheFairyMod:MasteredDefense": {
     "NAME": "Mastered Defense",
@@ -228,7 +226,7 @@
   },
   "TheFairyMod:ShieldingRounds": {
     "NAME": "Shielding Rounds",
-    "DESCRIPTION": "Whenever you play a card that thefairymod:Requires thefairymod:Bullets Gain !M! Block."
+    "DESCRIPTION": "Whenever you play a card that thefairymod:Spend thefairymod:Bullets Gain !M! Block."
   },
   "TheFairyMod:BurningDesire": {
     "NAME": "Burning Desire",
@@ -248,12 +246,12 @@
   },
   "TheFairyMod:MaximumEffort": {
     "NAME": "Maximum Effort",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL The next attack you play this turn deals 30% more damage. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL The next attack you play this turn deals 30% more damage. NL Exhaust."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL The next attack you play this turn deals 50% more damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL The next attack you play this turn deals 5  0% more damage. NL Exhaust."
   },
   "TheFairyMod:SnipperRifle": {
     "NAME": "Snipper Rifle",
-    "DESCRIPTION": "thefairymod:Requires !M! thefairymod:Bullets. NL Deal !D! damage. NL Gain !TheFairyMod:SecondMagic! thefairymod:Bleed."
+    "DESCRIPTION": "Deal !D! damage. thefairymod:Spend !M! thefairymod:Bullets to deal !TheFairyMod:SecondMagic! damage and apply 5 thefairymod:Bleed."
   },
   "TheFairyMod:PeaceOfMind": {
     "NAME": "Peace Of Mind",
@@ -266,7 +264,7 @@
   },
   "TheFairyMod:BrutalSuccess": {
     "NAME": "Brutal Success",
-    "DESCRIPTION": "thefairymod:Requires !M! Block. NL Gain !TheFairyMod:SecondMagic! Strength."
+    "DESCRIPTION": "Gain 2 Strength. NL thefairymod:Spend !M! thefairymod:Bullet to gain !TheFairyMod:SecondMagic! Strength."
   },
   "TheFairyMod:OpenArmory": {
     "NAME": "Open Armory",
@@ -278,7 +276,7 @@
   },
   "TheFairyMod:Juggernaut": {
     "NAME": "Juggernaut",
-    "DESCRIPTION": "Gain !B! Block. NL Apply !TheFairyMod:SecondMagic! thefairymod:Bleed."
+    "DESCRIPTION": "Gain !B! Block. NL thefairymod:Spend !M! thefairymod:Bullet to apply !TheFairyMod:SecondMagic! thefairymod:Bleed."
   },
   "TheFairyMod:JaggedGround": {
     "NAME": "Jagged Ground",
@@ -296,11 +294,9 @@
     "NAME": "Extra Ammo",
     "DESCRIPTION": "At the start of your turn gain !M! thefairymod:Bullets."
   },
-  "TheFairyMod:EfficientAmmo": {
-    "NAME": "Efficient Ammo",
-    "DESCRIPTION": "All cards thefairymod:Requiring thefairymod:Bullets thefairymod:Require !M! less Bullet.",
-    "UPGRADE_DESCRIPTION": "Innate. NLAll cards thefairymod:Requiring thefairymod:Bullets thefairymod:Require !M! less Bullet."
-
+  "TheFairyMod:EfficientWork": {
+    "NAME": "Efficient Work",
+    "DESCRIPTION": "Whenever you exhaust a card draw !M! card."
   },
   "TheFairyMod:PowerMove": {
     "NAME": "PowerMove",

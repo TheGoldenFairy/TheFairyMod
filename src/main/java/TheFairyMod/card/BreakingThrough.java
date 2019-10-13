@@ -59,18 +59,32 @@ public class BreakingThrough extends AbstractFairyCard {
 
         //Bullet Required Action
         if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, fairySecondMagicNumber, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, WEAK_AMT, true)));
         }
     }
 
-    //Calculate Modified Damage
+    //For Calculating the Damage
     @Override
-    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster m, float tmp) {
-        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
-            tmp += ADDITIONAL_DAMAGE;
-        }
-        return tmp;
+    public void applyPowers() {
+        int originalDamage = baseDamage;
+        baseDamage = fairyBaseSecondMagicNumber;
+        super.applyPowers();
+        fairySecondMagicNumber = damage;
+        isFairySecondMagicNumberModified = isDamageModified;
+        baseDamage = originalDamage;
+        super.applyPowers();
+    }
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        int originalDamage = baseDamage;
+        baseDamage = fairyBaseSecondMagicNumber;
+        super.calculateCardDamage(mo);
+        fairySecondMagicNumber = damage;
+        isFairySecondMagicNumberModified = isDamageModified;
+        baseDamage = originalDamage;
+        super.calculateCardDamage(mo);
     }
 
     // Upgraded stats.

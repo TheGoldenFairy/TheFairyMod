@@ -31,7 +31,7 @@ public class Bombardment extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 2;
-    private static final int DAMAGE = 13;
+    private static final int DAMAGE = 8;
     private static final int EXHAUST_AMT = 1;
 
     //card Initialize

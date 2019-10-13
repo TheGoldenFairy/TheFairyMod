@@ -2,11 +2,14 @@ package TheFairyMod.card;
 
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
+import TheFairyMod.power.BleedPower;
 import TheFairyMod.power.BulletPower;
 import TheFairyMod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -48,23 +51,39 @@ public class ScarredL extends AbstractFairyCard {
         tags.add(CustomTags.REQUIRES);
     }
 
-    @Override
-    public boolean cardPlayable(AbstractMonster m) {
-        if(!AbstractDungeon.player.hasPower(BulletPower.POWER_ID)) {
-            return false;
-        }
-
-        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount < magicNumber) {
-            return false;
-        }
-        return true;
-    }
-
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //Normal Action
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+
+        //Bullet Required Action
+        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
+        }
+    }
+
+    //For Calculating the Damage
+    @Override
+    public void applyPowers() {
+        int originalDamage = baseDamage;
+        baseDamage = fairyBaseSecondMagicNumber;
+        super.applyPowers();
+        fairySecondMagicNumber = damage;
+        isFairySecondMagicNumberModified = isDamageModified;
+        baseDamage = originalDamage;
+        super.applyPowers();
+    }
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        int originalDamage = baseDamage;
+        baseDamage = fairyBaseSecondMagicNumber;
+        super.calculateCardDamage(mo);
+        fairySecondMagicNumber = damage;
+        isFairySecondMagicNumberModified = isDamageModified;
+        baseDamage = originalDamage;
+        super.calculateCardDamage(mo);
     }
 
     // Upgraded stats.

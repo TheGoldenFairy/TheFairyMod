@@ -21,7 +21,7 @@
   },
   "TheFairyMod:NoMoreOptionsPower": {
     "NAME": "No More Options",
-    "DESCRIPTIONS": ["At the start of your turn draw #b", " card."," cards."]
+    "DESCRIPTIONS": ["At the start of your turn draw and discard #b", " card."," cards."]
   },
   "TheFairyMod:PowerMovePower": {
     "NAME": "Power Move",
@@ -55,9 +55,9 @@
     "NAME": "Spiked Ammo",
     "DESCRIPTIONS": ["Whenever an attack deals unblocked damage apply #b", " #yBleed."]
   },
-  "TheFairyMod:EfficientAmmoPower": {
-    "NAME": "Efficient Ammo",
-    "DESCRIPTIONS": ["All cards #yRequiring #yBullets, #yRequire #b", " less #yBullet.", " less #yBullets."]
+  "TheFairyMod:EfficientWorkPower": {
+    "NAME": "Efficient Work",
+    "DESCRIPTIONS": ["Whenever a card is Exhausted draw #b", " card.", " cards."]
   },
   "TheFairyMod:ExtraAmmoPower": {
     "NAME": "Extra Ammo",

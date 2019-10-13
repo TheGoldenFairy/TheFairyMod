@@ -31,7 +31,7 @@ public class Fortification extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int DAMAGE_AMT = 1;
+    private static final int DAMAGE_AMT = 2;
     private static final int DAMAGE_PLUS_AMT = 1;
 
     //card Initialize

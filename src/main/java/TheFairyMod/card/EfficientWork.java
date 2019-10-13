@@ -2,7 +2,7 @@ package TheFairyMod.card;
 
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
-import TheFairyMod.power.EfficientAmmoPower;
+import TheFairyMod.power.EfficientWorkPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,15 +12,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static TheFairyMod.TheFairyMod.makeCardPath;
 
-public class EfficientAmmo extends AbstractFairyCard {
+public class EfficientWork extends AbstractFairyCard {
 
     //card Info
-    public static final String ID = TheFairyMod.makeID("EfficientAmmo");
+    public static final String ID = TheFairyMod.makeID("EfficientWork");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG = makeCardPath("Power.png");
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     //card Stats
     private static final CardRarity RARITY = CardRarity.RARE;
@@ -30,18 +29,20 @@ public class EfficientAmmo extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 2;
-    private static final int BULLET_AMT = 1;
+    private static final int NEW_COST = 1;
+    private static final int POWER_AMT = 1;
+
 
 
     //card Initialize
-    public EfficientAmmo() {
+    public EfficientWork() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = BULLET_AMT;
+        magicNumber = baseMagicNumber = POWER_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EfficientAmmoPower(p, magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EfficientWorkPower(p, magicNumber)));
     }
 
     // Upgraded stats.
@@ -49,8 +50,7 @@ public class EfficientAmmo extends AbstractFairyCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isInnate = true;
-            rawDescription = UPGRADE_DESCRIPTION;
+            upgradeBaseCost(NEW_COST);
             initializeDescription();
         }
     }

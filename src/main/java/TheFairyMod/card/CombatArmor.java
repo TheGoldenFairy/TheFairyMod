@@ -3,6 +3,7 @@ package TheFairyMod.card;
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
 import TheFairyMod.power.BleedPower;
+import TheFairyMod.power.BulletPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -34,18 +35,22 @@ public class CombatArmor extends AbstractFairyCard {
     private static final int BLOCK = 5;
     private static final int BLEED_AMT = 2;
     private static final int UPGRADE_PLUS = 1;
+    private static final int BULLET_AMT = 3;
+    private static final int BULLET_PLUS_AMT = 2;
 
     //card Initialize
     public CombatArmor() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber = BLEED_AMT;
+        fairySecondMagicNumber = fairyBaseSecondMagicNumber = BULLET_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BulletPower(p, fairySecondMagicNumber)));
     }
 
     // Upgraded stats.
@@ -54,6 +59,7 @@ public class CombatArmor extends AbstractFairyCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS);
+            upgradeFairySecondMagicNumber(BULLET_PLUS_AMT);
             initializeDescription();
         }
     }

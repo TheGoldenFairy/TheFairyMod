@@ -4,7 +4,11 @@ import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
 import TheFairyMod.power.BleedPower;
 import TheFairyMod.power.BulletPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,22 +35,28 @@ public class LivingShells extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 2;
-    private static final int BULLET_AMT = 6;
-    private static final int BULLET_PLUS_AMT = 2;
+    private static final int BULLET_AMT = 8;
+    private static final int BULLET_PLUS_AMT = 3;
+    private static final int BULLET_REQ = 2;
     private static final int BLEED_AMT = 5;
-    private static final int BLEED_PLUS_AMT = 2;
 
     //card Initialize
     public LivingShells() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = BULLET_AMT;
-        fairySecondMagicNumber = fairyBaseSecondMagicNumber = BLEED_AMT;
+        magicNumber = baseMagicNumber = BULLET_REQ;
+        fairySecondMagicNumber = fairyBaseSecondMagicNumber = BULLET_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BulletPower(p, magicNumber)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, fairySecondMagicNumber)));
+        //Bullet Required Action
+        if(AbstractDungeon.player.hasPower(BulletPower.POWER_ID) && AbstractDungeon.player.getPower(BulletPower.POWER_ID).amount >= magicNumber) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, BLEED_AMT)));
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
+        }
+
+        //Normal Action
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BulletPower(p, fairySecondMagicNumber)));
     }
 
     // Upgraded stats.
@@ -54,8 +64,7 @@ public class LivingShells extends AbstractFairyCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(BULLET_PLUS_AMT);
-            upgradeFairySecondMagicNumber(BLEED_PLUS_AMT);
+            upgradeFairySecondMagicNumber(BULLET_PLUS_AMT);
             initializeDescription();
         }
     }

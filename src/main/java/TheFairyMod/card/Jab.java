@@ -33,8 +33,8 @@ public class Jab extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int DAMAGE = 4;
-    private static final int UPGRADE_PLUS = 2;
+    private static final int DAMAGE = 9;
+    private static final int UPGRADE_PLUS = 3;
 
     //card Initialize
     public Jab() {

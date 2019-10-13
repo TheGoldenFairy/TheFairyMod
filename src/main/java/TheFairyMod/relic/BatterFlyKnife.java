@@ -23,7 +23,7 @@ public class BatterFlyKnife extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
 
     private static final int BLEED_AMT = 4;
-    private static final int BULLET_AMT = 2;
+    private static final int BULLET_AMT = 3;
 
     public BatterFlyKnife() {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, AbstractRelic.LandingSound.MAGICAL);

@@ -43,8 +43,8 @@ public class HastyRetreat extends AbstractFairyCard {
     public HastyRetreat() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
-        magicNumber = baseMagicNumber = SECOND_BLOCK;
-        fairySecondMagicNumber = fairyBaseSecondMagicNumber = DEX_REQ;
+        magicNumber = baseMagicNumber = DEX_REQ;
+        fairySecondMagicNumber = fairyBaseSecondMagicNumber = SECOND_BLOCK;
         tags.add(CustomTags.REQUIRES);
     }
 
@@ -52,9 +52,21 @@ public class HastyRetreat extends AbstractFairyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         if(p.hasPower(DexterityPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, magicNumber + p.getPower(DexterityPower.POWER_ID).amount));
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, fairySecondMagicNumber));
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, DexterityPower.POWER_ID, DEX_REQ));
         }
+    }
+
+    //For Calculating the Block
+    @Override
+    public void applyPowers() {
+        int originalBlock = baseBlock;
+        baseBlock = fairyBaseSecondMagicNumber;
+        super.applyPowers();
+        fairySecondMagicNumber = block;
+        isFairySecondMagicNumberModified = isBlockModified;
+        baseBlock = originalBlock;
+        super.applyPowers();
     }
 
     // Upgraded stats.

@@ -20,5 +20,13 @@
       "spending"
     ],
     "DESCRIPTION": "Need and lose X amount."
+  },
+  {
+    "NAMES": [
+      "entangle",
+      "entangled",
+      "entangles"
+    ],
+    "DESCRIPTION": "Prevents skills from being used this turn."
   }
 ]

@@ -3,7 +3,7 @@
   "name": "The Fairy Mod",
   "author_list": ["TheGoldenFairy"],
   "description": "A Mod that just adds in a new Character. New Cards/Relics Coming Soon!",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "sts_version": "07-01-2019",
   "mts_version": "3.14.0",
   "dependencies": ["basemod", "stslib"],

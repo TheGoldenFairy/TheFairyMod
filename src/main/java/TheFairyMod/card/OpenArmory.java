@@ -33,15 +33,14 @@ public class OpenArmory extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 2;
+    private static final int NEW_COST = 1;
     private static final int BULLET_AMT = 10;
-    private static final int BULLET_PLUS_AMT = 3;
 
 
     //card Initialize
     public OpenArmory() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BULLET_AMT;
-        exhaust = true;
     }
 
     @Override
@@ -54,7 +53,7 @@ public class OpenArmory extends AbstractFairyCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(BULLET_PLUS_AMT);
+            upgradeBaseCost(NEW_COST);
             initializeDescription();
         }
     }

@@ -1,12 +1,12 @@
 package TheFairyMod.power;
 
 import TheFairyMod.TheFairyMod;
+import TheFairyMod.util.CustomTags;
 import TheFairyMod.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,8 +15,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static TheFairyMod.TheFairyMod.makePowerPath;
 
-public class NoMoreOptionsPower extends AbstractPower {
-    private static final String POWER_ID = TheFairyMod.makeID("NoMoreOptionsPower");
+public class EfficientWorkPower extends AbstractPower {
+
+    public static final String POWER_ID = TheFairyMod.makeID("EfficientWorkPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -24,8 +25,7 @@ public class NoMoreOptionsPower extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-
-    public NoMoreOptionsPower(final AbstractCreature owner, final int amount) {
+    public EfficientWorkPower(final AbstractCreature owner, final int amount) {
         name = NAME;
         ID = POWER_ID;
         this.owner = owner;
@@ -41,20 +41,18 @@ public class NoMoreOptionsPower extends AbstractPower {
     }
 
     @Override
-    public void atStartOfTurnPostDraw() {
-        flash();
+    public void onExhaust(AbstractCard card) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, amount));
-        AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, amount, false));
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        if(amount > 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+        if(amount == 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
         }
         else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
         }
     }
 }

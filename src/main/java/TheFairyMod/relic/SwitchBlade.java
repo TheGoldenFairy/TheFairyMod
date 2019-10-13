@@ -22,7 +22,7 @@ public class SwitchBlade extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
 
     private static final int BLEED_AMT = 2;
-    private static final int BULLET_AMT = 1;
+    private static final int BULLET_AMT = 2;
 
     public SwitchBlade() {
         super(ID, IMG, OUTLINE, AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);

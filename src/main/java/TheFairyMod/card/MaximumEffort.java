@@ -34,14 +34,12 @@ public class MaximumEffort extends AbstractFairyCard {
     //card Number
     private static final int COST = 2;
     private static final int DAMAGE = 10;
-    private static final int PERCENT_EXTRA_DAMAGE = 30;
     private static final int AMOUNT = 1;
 
     //card Initialize
     public MaximumEffort() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = PERCENT_EXTRA_DAMAGE;
         exhaust = true;
         isEthereal = true;
     }

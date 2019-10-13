@@ -20,7 +20,6 @@ public class NoMoreOptions extends AbstractFairyCard {
     private static final String IMG = makeCardPath("Power.png");
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     //card Stats
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -29,19 +28,19 @@ public class NoMoreOptions extends AbstractFairyCard {
     private static final CardColor COLOR = TheGunner.Enums.COLOR_BROWN;
 
     //card Number
-    private static final int COST = 0;
-    private static final int CARD_DRAW = 1;
-    private static final int CARD_PLUS_AMT = 1;
+    private static final int COST = 1;
+    private static final int NEW_COST = 0;
+    private static final int POWER_AMT = 1;
 
     //card Initialize
     public NoMoreOptions() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = CARD_DRAW;
+        magicNumber = baseMagicNumber = POWER_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NoMoreOptionsPower(p, magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NoMoreOptionsPower(p, POWER_AMT)));
     }
 
     // Upgraded stats.
@@ -49,8 +48,7 @@ public class NoMoreOptions extends AbstractFairyCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(CARD_PLUS_AMT);
-            rawDescription = UPGRADE_DESCRIPTION;
+            upgradeBaseCost(NEW_COST);
             initializeDescription();
         }
     }

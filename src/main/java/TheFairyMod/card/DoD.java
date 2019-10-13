@@ -52,7 +52,7 @@ public class DoD extends AbstractFairyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //Requires Block Action
-        if (AbstractDungeon.player.currentBlock < fairySecondMagicNumber) {
+        if (AbstractDungeon.player.currentBlock >= fairySecondMagicNumber) {
             AbstractDungeon.actionManager.addToBottom(new LoseBlockAction(p, p, fairySecondMagicNumber));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnDrawAndEnergyPower(p, POWER_AMT, magicNumber, ENERGY_AMT)));
         }

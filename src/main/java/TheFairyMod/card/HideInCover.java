@@ -2,6 +2,8 @@ package TheFairyMod.card;
 
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
+import TheFairyMod.power.BulletPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -31,16 +33,19 @@ public class HideInCover extends AbstractFairyCard {
     private static final int COST = 1;
     private static final int BLOCK = 9;
     private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int BULLET_AMT = 2;
 
     //card Initialize
     public HideInCover() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
+        magicNumber = baseMagicNumber = BULLET_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BulletPower(p, magicNumber)));
     }
 
     // Upgraded stats.

@@ -3,6 +3,8 @@ package TheFairyMod.card;
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
 import TheFairyMod.power.BleedPower;
+import TheFairyMod.power.BulletPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -33,20 +35,35 @@ public class TrueAdvantage extends AbstractFairyCard {
     private static final int NEW_COST = 0;
     private static final int BLOCK = 4;
     private static final int ADDITIONAL_BLOCK = 7;
+    private static final int BULLET_AMT = 2;
 
     //card Initialize
     public TrueAdvantage() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
-        magicNumber = baseMagicNumber = ADDITIONAL_BLOCK;
+        magicNumber = baseMagicNumber = BULLET_AMT;
+        fairySecondMagicNumber = fairyBaseSecondMagicNumber = ADDITIONAL_BLOCK;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         if(m.hasPower(BleedPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block + 3));
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, fairySecondMagicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BulletPower(p, magicNumber)));
         }
+    }
+
+    //For Calculating the Block
+    @Override
+    public void applyPowers() {
+        int originalBlock = baseBlock;
+        baseBlock = fairyBaseSecondMagicNumber;
+        super.applyPowers();
+        fairySecondMagicNumber = block;
+        isFairySecondMagicNumberModified = isBlockModified;
+        baseBlock = originalBlock;
+        super.applyPowers();
     }
 
     // Upgraded stats.

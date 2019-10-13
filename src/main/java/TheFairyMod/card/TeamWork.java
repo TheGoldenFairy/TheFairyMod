@@ -36,6 +36,7 @@ public class TeamWork extends AbstractFairyCard {
     public TeamWork() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = EXHAUST_AMT;
+        exhaust = true;
     }
 
     @Override

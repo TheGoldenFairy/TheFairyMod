@@ -23,16 +23,14 @@ public class NextTurnEnergyPower extends AbstractPower {
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    private int ENERGY_AMT = 0;
 
-    public NextTurnEnergyPower(final AbstractCreature owner, final int amount, final int ENERGY) {
+    public NextTurnEnergyPower(final AbstractCreature owner, final int amount) {
         name = NAME;
         ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
         type = PowerType.DEBUFF;
         isTurnBased = true;
-        ENERGY_AMT += ENERGY;
 
         // We load those textures here.
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -44,14 +42,13 @@ public class NextTurnEnergyPower extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         flash();
-        AbstractDungeon.actionManager.addToTop(new GainEnergyAction(ENERGY_AMT));
+        AbstractDungeon.actionManager.addToTop(new GainEnergyAction(amount));
         AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
-        ENERGY_AMT = 0;
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + ENERGY_AMT + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 }

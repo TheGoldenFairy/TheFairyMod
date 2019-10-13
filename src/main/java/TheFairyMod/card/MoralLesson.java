@@ -38,12 +38,15 @@ public class MoralLesson extends AbstractFairyCard {
     private static final int UPGRADE_PLUS_DMG = 2;
     private static final int STRENGTH_REQ = 1;
     private static final int WEAK_AMT = 1;
+    private static final int ADDITIONAL_DMG = 7;
+    private static final int ADDITIONAL_DMG_PLUS = 3;
 
     //card Initialize
     public MoralLesson() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = STRENGTH_REQ;
+        fairySecondMagicNumber = fairyBaseSecondMagicNumber = ADDITIONAL_DMG;
         tags.add(CustomTags.REQUIRES);
     }
 
@@ -53,9 +56,32 @@ public class MoralLesson extends AbstractFairyCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, WEAK_AMT, true)));
         if(p.hasPower(StrengthPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, fairySecondMagicNumber, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, StrengthPower.POWER_ID, magicNumber));
         }
+    }
+
+
+    //For Calculating the Damage
+    @Override
+    public void applyPowers() {
+        int originalDamage = baseDamage;
+        baseDamage = fairyBaseSecondMagicNumber;
+        super.applyPowers();
+        fairySecondMagicNumber = damage;
+        isFairySecondMagicNumberModified = isDamageModified;
+        baseDamage = originalDamage;
+        super.applyPowers();
+    }
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        int originalDamage = baseDamage;
+        baseDamage = fairyBaseSecondMagicNumber;
+        super.calculateCardDamage(mo);
+        fairySecondMagicNumber = damage;
+        isFairySecondMagicNumberModified = isDamageModified;
+        baseDamage = originalDamage;
+        super.calculateCardDamage(mo);
     }
 
     // Upgraded stats.
@@ -64,6 +90,7 @@ public class MoralLesson extends AbstractFairyCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeFairySecondMagicNumber(ADDITIONAL_DMG_PLUS);
             initializeDescription();
         }
     }
