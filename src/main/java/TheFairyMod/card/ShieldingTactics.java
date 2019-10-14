@@ -38,6 +38,7 @@ public class ShieldingTactics extends AbstractFairyCard {
     private static final int BLOCK_NEXT_TURN = 5;
     private static final int BLOCK_NEXT_TURN_UPGRADE = 2;
     private static final int BLOCK_REQ = 4;
+    private static boolean HAS_ENOUGH_BLOCK;
 
     //card Initialize
     public ShieldingTactics() {
@@ -50,14 +51,20 @@ public class ShieldingTactics extends AbstractFairyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //Requires Block Action
-        if (AbstractDungeon.player.currentBlock >= magicNumber) {
-            AbstractDungeon.actionManager.addToBottom(new LoseBlockAction(p, p, magicNumber));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, fairySecondMagicNumber)));
+        //Testing Block
+        if (AbstractDungeon.player.currentBlock >= fairySecondMagicNumber) {
+            HAS_ENOUGH_BLOCK = true;
         }
 
         //Normal Action
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+
+        //Requires Block Action
+        if (HAS_ENOUGH_BLOCK) {
+            AbstractDungeon.actionManager.addToBottom(new LoseBlockAction(p, p, magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, fairySecondMagicNumber)));
+        }
+        HAS_ENOUGH_BLOCK = false;
     }
 
     // Upgraded stats.

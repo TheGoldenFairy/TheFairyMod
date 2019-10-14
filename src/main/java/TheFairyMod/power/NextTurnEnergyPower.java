@@ -29,7 +29,7 @@ public class NextTurnEnergyPower extends AbstractPower {
         ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
-        type = PowerType.DEBUFF;
+        type = PowerType.BUFF;
         isTurnBased = true;
 
         // We load those textures here.

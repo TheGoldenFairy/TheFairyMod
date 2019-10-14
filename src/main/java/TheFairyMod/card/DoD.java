@@ -39,6 +39,7 @@ public class DoD extends AbstractFairyCard {
     private static final int CARD_DRAW_AMT = 2;
     private static final int ENERGY_AMT = 1;
     private static final int POWER_AMT = 1;
+    private static boolean HAS_ENOUGH_BLOCK;
 
     //card Initialize
     public DoD() {
@@ -59,6 +60,7 @@ public class DoD extends AbstractFairyCard {
 
         //Normal Action
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        HAS_ENOUGH_BLOCK = false;
     }
 
     // Upgraded stats.

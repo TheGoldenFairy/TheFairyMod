@@ -40,6 +40,7 @@ public class LightWeightArmor extends AbstractFairyCard {
     private static final int ENERGY_AMT = 2;
     private static final int BLOCK_REQ = 4;
     private static final int BULLET_AMT = 2;
+    private static boolean HAS_ENOUGH_BLOCK;
 
     //card Initialize
     public LightWeightArmor() {
@@ -52,15 +53,22 @@ public class LightWeightArmor extends AbstractFairyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //Requires Block Action
-        if (AbstractDungeon.player.currentBlock >= magicNumber) {
-            AbstractDungeon.actionManager.addToBottom(new LoseBlockAction(p, p, magicNumber));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnEnergyPower(p, ENERGY_AMT)));
+        //Testing Block
+        if (AbstractDungeon.player.currentBlock >= fairySecondMagicNumber) {
+            HAS_ENOUGH_BLOCK = true;
         }
 
         //Normal Action
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BulletPower(p, fairySecondMagicNumber)));
+
+
+        //Requires Block Action
+        if (HAS_ENOUGH_BLOCK) {
+            AbstractDungeon.actionManager.addToBottom(new LoseBlockAction(p, p, magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnEnergyPower(p, ENERGY_AMT)));
+        }
+        HAS_ENOUGH_BLOCK = false;
     }
 
     // Upgraded stats.

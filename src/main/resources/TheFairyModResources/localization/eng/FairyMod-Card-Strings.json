@@ -93,11 +93,11 @@
   },
   "TheFairyMod:HastyRetreat": {
     "NAME": "Hasty Retreat",
-    "DESCRIPTION": "Gain !B! Block. NL thefairymod:Spend 1 Dexterity. NL Gain an !TheFairyMod:SecondMagic! Block."
+    "DESCRIPTION": "Gain !B! Block. NL thefairymod:Spend 1 Dexterity. NL Gain !TheFairyMod:SecondMagic! Block."
   },
   "TheFairyMod:DoD": {
     "NAME": "DoD",
-    "DESCRIPTION": "Gain !B! Block. NL thefairymod:Spend !TheFairyMod:SecondMagic! Block to Gain !B! Block to draw !M! cards and gain [E] next turn."
+    "DESCRIPTION": "thefairymod:Spend !TheFairyMod:SecondMagic! Block to draw !M! cards and gain [E] next turn. NL Gain !B! Block."
   },
   "TheFairyMod:PistolShot": {
     "NAME": "Pistal Shot",

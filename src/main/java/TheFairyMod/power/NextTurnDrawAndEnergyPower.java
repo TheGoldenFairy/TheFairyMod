@@ -33,7 +33,7 @@ public class NextTurnDrawAndEnergyPower extends AbstractPower {
         ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
-        type = PowerType.DEBUFF;
+        type = PowerType.BUFF;
         isTurnBased = true;
         CARD_DRAW_AMT += CARD_DRAW;
         ENERGY_AMT += ENERGY;
