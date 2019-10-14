@@ -29,7 +29,7 @@
   },
   "TheFairyMod:Silencer": {
     "NAME": "Silencer",
-    "DESCRIPTION": "Deal !D! damage. Discard a card."
+    "DESCRIPTION": "Deal !D! damage. Gain !M! thefairymod:Bullet."
   },
   "TheFairyMod:GoForTheHands": {
     "NAME": "Go for the hands",
@@ -61,7 +61,7 @@
   },
   "TheFairyMod:Reassess": {
     "NAME": "Reassess",
-    "DESCRIPTION": "Draw !M! cards. NL Exhaust 1 card. NL Become thefairymod:Entangled."
+    "DESCRIPTION": "Draw !M! cards. NL Exhaust 1 card. NL Exhaust."
   },
   "TheFairyMod:HideInCover": {
     "NAME": "Hide In Cover",

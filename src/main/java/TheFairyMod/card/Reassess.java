@@ -40,13 +40,13 @@ public class Reassess extends AbstractFairyCard {
     public Reassess() {
         super(ID, NAME, IMG, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CARD_DRAW_AMT;
+        exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, EXHAUST_AMT, false));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EntanglePower(p)));
     }
 
     // Upgraded stats.

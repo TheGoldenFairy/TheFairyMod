@@ -30,8 +30,8 @@ public class SpeedyReload extends AbstractFairyCard {
 
     //card Number
     private static final int COST = 1;
-    private static final int NEW_COST = 0;
     private static final int BULLET_AMT = 6;
+    private static final int BULLET_PLUS_AMT = 2;
 
 
     //card Initialize
@@ -50,7 +50,7 @@ public class SpeedyReload extends AbstractFairyCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(NEW_COST);
+            upgradeMagicNumber(BULLET_PLUS_AMT);
             initializeDescription();
         }
     }

@@ -23,7 +23,7 @@ public class SplitShot extends AbstractFairyCard {
     //card Info
     public static final String ID = TheFairyMod.makeID("SplitShot");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String IMG = makeCardPath("Attack.png");
+    private static final String IMG = makeCardPath("SplitShot.png");
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
 

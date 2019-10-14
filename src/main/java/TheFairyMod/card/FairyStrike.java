@@ -20,7 +20,7 @@ public class FairyStrike extends CustomCard {
     //card Info
     public static final String ID = TheFairyMod.makeID("Strike");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String IMG = makeCardPath("Attack.png");
+    private static final String IMG = makeCardPath("Strike.png");
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
 

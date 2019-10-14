@@ -2,7 +2,9 @@ package TheFairyMod.card;
 
 import TheFairyMod.TheFairyMod;
 import TheFairyMod.character.TheGunner;
+import TheFairyMod.power.BulletPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -33,7 +35,7 @@ public class Silencer extends AbstractFairyCard {
     private static final int COST = 1;
     private static final int DAMAGE = 9;
     private static final int UPGRADE_PLUS_DMG = 3;
-    private static final int DISCARD_AMT = 1;
+    private static final int BULLET_AMT = 1;
 
     //card Initialize
     public Silencer() {
@@ -45,7 +47,7 @@ public class Silencer extends AbstractFairyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, DISCARD_AMT, false));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BulletPower(p, BULLET_AMT)));
     }
 
     // Upgraded stats.

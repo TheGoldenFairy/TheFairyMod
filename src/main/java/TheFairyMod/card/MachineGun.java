@@ -7,6 +7,7 @@ import TheFairyMod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,7 +33,7 @@ public class MachineGun extends AbstractFairyCard {
     private static final CardColor COLOR = TheGunner.Enums.COLOR_BROWN;
 
     //card Number
-    private static final int COST = 1;
+    private static final int COST = 3;
     private static final int DAMAGE = 2;
     private static final int UPGRADE_PLUS_DMG = 1;
 
@@ -59,6 +60,7 @@ public class MachineGun extends AbstractFairyCard {
         for(int i = 0; i < magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
+        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, BulletPower.POWER_ID, magicNumber));
     }
 
     // Upgraded stats.
